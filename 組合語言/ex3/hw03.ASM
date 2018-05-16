@@ -1,0 +1,32 @@
+.286          
+.MODEL SMALL
+.STACK
+.DATA
+     MSG DB 'aZ!&'
+     L_MSG EQU $-MSG
+.CODE
+BEG:MOV AX,@DATA
+    MOV DS,AX
+    MOV BX,0
+    MOV CX,L_MSG
+AA: MOV DL,MSG[BX]
+    CMP MSG[BX],'A'
+    JAE BB
+    JMP EL
+BB: CMP MSG[BX],'Z'
+    JBE ANS
+    JMP CC
+CC: CMP MSG[BX],'a'
+    JAE EE
+    JMP EL
+EE: CMP MSG[BX],'z'
+    JBE ANS
+    JMP EL
+ANS:XOR DL,00100000B
+EL: MOV AH,2
+    INT 21H
+    INC BX
+    LOOP AA
+    MOV AH,4CH
+    INT 21H
+    END BEG

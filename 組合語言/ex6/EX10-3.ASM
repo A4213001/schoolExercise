@@ -1,0 +1,26 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+     NO1 DB 9
+     NO2 DB 9
+     SUM DW ?,'$'
+     MSG DB '相加結果為:$'
+.CODE
+EXTRN OUT_NUM:PROC,PUTSTR:PROC
+MAIN PROC
+     MOV AX,@DATA
+     MOV DS,AX
+     LEA DX,MSG
+     CALL PUTSTR
+     MOV AL,NO1
+     ADD AL,NO2
+     CALL OUT_NUM
+     POP AX
+     MOV SUM,AX
+     LEA DX,SUM
+     CALL PUTSTR
+     MOV AH,4CH
+     INT 21H
+     RET
+MAIN ENDP
+END

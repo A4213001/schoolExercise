@@ -1,0 +1,10 @@
+.MODEL SMALL
+.CODE
+PUBLIC PUTSTR
+PUTSTR  PROC
+        MOV AH,9
+        INT 21H
+        RET
+PUTSTR  ENDP
+        END
+
