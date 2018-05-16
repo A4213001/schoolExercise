@@ -1,0 +1,63 @@
+<% include header %>
+<body>
+	<br>
+	<div class="col-md-1">
+	</div>
+	<div class="col-md-10">
+	<div class="table-responsive">
+        <table class="table">
+        	<thead>
+        		<tr class="danger">
+        			<th>圖片</th>
+		            <th>名稱</th>
+		            <th>可食用部分</th>
+		            <th>熱量</th>
+		            <th>蛋白質</th>
+		            <th>脂肪</th>
+		            <th>膽固醇</th>
+		            <th>膳食纖維</th>
+		            <th>碳水化合物</th>
+		            <th>維生素A</th>
+		            <th>評價</th>
+		            <th></th>
+        		</tr>
+        	</thead>
+        	<tbody>
+           		<tr class="success">
+           			<td></td>
+	                <td></td>
+	                <td>%</td>
+	                <td>千卡</td>
+	                <td>克</td>
+	                <td>克</td>
+	                <td>克</td>
+	                <td>克</td>
+	                <td>克</td>
+	                <td>微克</td>
+	                <td>0~10</td>
+	                <td></td>
+            	</tr>
+                <tr class="info">
+                	<td><img src=<%= array.image %>></td>
+                    <td><%= array.name %></td>
+					<td><%= array.useEat %></td>
+					<td><%= array.heat %></td>
+					<td><%= array.protein %></td>
+					<td><%= array.fat %></td>
+					<td><%= array.cholesterol %></td>
+					<td><%= array.dietaryFiber %></td>
+					<td><%= array.carbohydrates %></td>
+					<td><%= array.vitaminsA %></td>
+					<td><%= array.grade %></td>
+					<td>
+						<form action="/text" method="get">
+							<input type="hidden" name="getId" value="<%= array.ID %>">
+							<input type="hidden" name="fOv" value="0">
+							<input type="submit" class="btn btn-success" name="send" value="查看評語">
+						</form>
+					</td>
+                </tr>
+			</tbody>
+    	</table>
+    </div>
+<% include footer %>
