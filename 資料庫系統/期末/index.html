@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>SQL操作</title>
+</head>
+<body>
+<h1>
+新增
+</h1>
+<form method="post" action="sql/add.php">
+<label>新增食物</label>
+<input type="text" name="a1" placeholder="食物名稱">
+<input type="text" name="a2" placeholder="食物編號">
+<button type="submit">新增</button>
+<br>
+<label>新增員工</label>
+<input type="text" name="a3" placeholder="員工編號">
+<input type="text" name="a4" placeholder="飼養員名稱">
+<button type="submit">新增</button>
+<br>
+<label>新增動物</label>
+<input type="text" name="a5" placeholder="綱">
+<input type="text" name="a6" placeholder="動物編號">
+<input type="text" name="a7" placeholder="動物名稱">
+<input type="text" name="a8" placeholder="員工編號">
+<button type="submit">新增</button>
+<br>
+<label>新增動物進食數量</label>
+<input type="text" name="a9" placeholder="數量">
+<input type="text" name="a10" placeholder="動物編號">
+<input type="text" name="a11" placeholder="食物編號">
+<button type="submit">新增</button>
+</form>
+
+<h1>
+修改
+</h1>
+<form method="post" action="sql/update.php">
+<label>修改食物</label>
+<input type="text" name="a1" placeholder="想修改的食物編號">
+<input type="text" name="a2" placeholder="修改後的食物名稱">
+<button type="submit">修改</button>
+<br>
+<label>修改員工</label>
+<input type="text" name="a3" placeholder="想修改的員工編號">
+<input type="text" name="a4" placeholder="修改後的飼養員名稱">
+<button type="submit">修改</button>
+<br>
+<label>修改動物</label>
+<input type="text" name="a5" placeholder="想修改的動物編號">
+<input type="text" name="a6" placeholder="修改後的綱">
+<input type="text" name="a7" placeholder="修改後的動物名稱">
+<input type="text" name="a8" placeholder="修改後的員工編號">
+<button type="submit">修改</button>
+<br>
+<label>修改動物進食數量</label>
+<input type="text" name="a9" placeholder="想修改的動物編號">
+<input type="text" name="a10" placeholder="想修改的食物編號">
+<input type="text" name="a11" placeholder="修改後的數量">
+<button type="submit">修改</button>
+<br>
+</form>
+
+
+<h1>
+刪除
+</h1>
+<form method="post" action="sql/delete.php">
+	<label>想刪除哪項目的資料</label>
+	<select name="msg">
+　  <option value="animal">動物</option>
+　  <option value="employee">員工列表</option>
+　  <option value="food">食物</option>
+    </select> 
+	<input type="text" name="num" placeholder="編號">
+	<button type="submit">刪除</button>
+	<br>
+	<label>刪除動物進食數量</label>
+	<input type="text" name="num2" placeholder="動物編號">
+	<input type="text" name="num3" placeholder="食物編號">
+	<button type="submit">刪除</button>
+</form>
+
+<h1>
+查詢
+</h1>
+  <form method="post" action="sql/search.php">
+  <label>查詢</label>
+
+  <select name="msg">
+　<option value="animal">動物</option>
+　<option value="employee">員工列表</option>
+　<option value="food">食物</option>
+　<option value="eat">動物進食數量</option>
+  </select> 
+  
+  <button type="sumbit">查詢</button>
+
+</form>
+</body>
+</html>

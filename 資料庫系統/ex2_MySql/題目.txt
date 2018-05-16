@@ -1,0 +1,1 @@
+請用MySQL 建立UNIVERSITY 的關聯式資料綱要模型.

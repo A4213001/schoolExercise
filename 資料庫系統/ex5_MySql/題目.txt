@@ -1,0 +1,4 @@
+請以課本圖6.1(P.211)為例, 
+1. 用SQL CREATE 指令建立COMPANY 資料庫所需的表格, 包括欄位名稱, 型別, 限制, 主要鍵和外來鍵.
+2. 插入課本圖5.6(P.192)的初始資料到COMPANY資料庫. (執行所附 .sql 檔)
+3.確認執行無誤後, 請將 SQL DDL (CREATE TABLE) 和DML (INSERT INTO) 程式碼加入 Model 中
