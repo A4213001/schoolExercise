@@ -1,0 +1,97 @@
+<% include header %>
+<body>
+	<script>
+		department=new Array();
+		department[0]=["請選擇"];
+		department[1]=["請選擇"];
+		department[2]=["請選擇"];
+	</script>
+	<% vegArray.forEach(function (mv) { %>
+	<script>
+		department[1].push("<%= mv.name %>");
+	</script>
+	<%
+	})
+	%>
+	<% fruArray.forEach(function (mv) { %>
+	<script>
+		department[2].push("<%= mv.name %>");
+	</script>
+	<%
+	})
+	%>
+	<script>
+		function renew(index){
+			if(index==0){
+				for(var i=0;i<department[index].length;i++){
+					document.myForm.select.options[i]=new Option(department[index][i], department[index][i]);
+				}
+				document.myForm.select.length=department[index].length;
+			}
+			if(index==1){
+				for(var i=0;i<department[index].length;i++){
+					document.myForm.select.options[i]=new Option(department[index][i], department[index][i]);
+				}
+				document.myForm.select.length=department[index].length;
+			}
+			if(index==2){
+				for(var i=0;i<department[index].length;i++){
+					document.myForm.select.options[i]=new Option(department[index][i], department[index][i]);
+				}
+				document.myForm.select.length=department[index].length;
+			}
+		}
+	</script>
+	<div class="col-md-1">
+	</div>
+	<div class="col-md-6">
+		<h2>對蔬果進行評價</h2>
+		<form method="post" role="form" name="myForm">
+			<div class="form-group">
+				<label>分類選擇</label>
+			    <select class="form-control" id="fov" name="fov" onChange="renew(this.selectedIndex);">
+				    	<option>請選擇</option>			    	
+	                	<option>蔬菜</option>
+	                	<option>水果</option>
+				</select>
+				<label>項目選擇</label>
+			    <select class="form-control" id="select" name="select">
+				    	<option>請選擇</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>評價分數</label>
+			    <select class="form-control" id="num" name="num" required>
+				    	<option>請選擇</option>
+				    	<option>0</option>
+				        <option>1</option>
+				        <option>2</option>
+				        <option>3</option>
+				        <option>4</option>
+				        <option>5</option>
+				        <option>6</option>
+				        <option>7</option>
+				        <option>8</option>
+				        <option>9</option>
+				        <option>10</option>
+				    </select>
+				</div>
+			<div class="form-group">
+				<label for="content">留下評語</label>
+				<textarea class="form-control" id="text" name="text" required></textarea>
+			</div>
+			<div class="form-group">
+			    <input type="submit" value="請登入" class="btn btn-primary" id="submitG" disabled="disabled">
+			</div>
+			<script>
+				<% if(loginStatus.status==1) { %>
+					document.getElementById("submitG").disabled="";
+					document.getElementById("submitG").value="送出評語";
+				<% } else { %>
+					document.getElementById("submitG").disabled="disabled";
+					document.getElementById("submitG").value="請登入";
+				<% } %>
+			</script>
+		</form>
+	</div>
+<% include footer %>

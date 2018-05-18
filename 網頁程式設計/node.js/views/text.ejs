@@ -1,0 +1,46 @@
+<% include header %>
+<body>
+	<br>
+	<script>
+		var have=0;
+	</script>
+	<% array.forEach(function (mv) { %>
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+	        <div class="panel-heading">
+	        <%= mv.select %>
+	        </div>
+	        <div class="panel-body">
+	        <%= mv.num %>
+	        分<br>
+	        <%= mv.text %>
+	        </div>
+	        <div class="panel-footer">
+	        <%= mv.published %>
+	        </div>
+	    </div>
+    </div>
+    <script>
+    	have=1;
+    </script>
+    <%
+	})
+	%>
+	<script>
+		if(have==0){
+			document.write("<div class='col-md-4'>");
+			document.write("<div class='panel panel-primary'>");
+			document.write("<div class='panel-heading'>")
+			document.write("系統");
+			document.write("</div>");
+			document.write("<div class='panel-body'>");
+			document.write("目前暫無評語");
+			document.write("</div>");
+			document.write("<div class='panel-footer'>");
+			document.write("X");
+			document.write("</div>");
+			document.write("</div>");
+			document.write("</div>");
+		}
+	</script>
+<% include footer %>
