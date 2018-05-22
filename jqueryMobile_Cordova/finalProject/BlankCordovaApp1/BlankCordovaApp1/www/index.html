@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        視需要在下方的中繼標籤中自訂內容安全性原則。將 'unsafe-inline' 加入 default-src 以啟用內嵌 JavaScript。
+        如需詳細資料，請參閱 http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <link href="themes/color.min.css" rel="stylesheet" />
+    <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <link href="css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>myAPP</title>
+</head>
+<body>
+    <!-- 登入 -->
+    <div data-role="page" id="login">
+        <div data-role="main" class="ui-content">
+            <!-- ui-content 較為人性化的介面，網頁預留空間不會填滿整個頁面-->
+            <p align="center">
+                <img src="images/get-money.png">
+                <h1 align="center">歡迎使用此APP</h1>
+                <h1 align="center">請問是否要進入?</h1>
+            <p align="center"><a href="#home" class="ui-btn ui-btn-inline ui-icon-check ui-btn-icon-top ui-corner-all ui-shadow" data-transition="flip">進入</a></p>
+        </div>
+    </div>
+
+    <!-- 首頁 -->
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>首頁</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p align="center"><img src="images/get-money.png"></p>
+            <h1 align="center">初任薪資查詢APP</h1>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist">首頁</a></li>
+                    <li><a href="#search" data-icon="search" data-transition="slideup">薪資查詢</a></li>
+                    <li><a href="#sort" data-icon="arrow-u" data-transition="slideup">排行榜</a></li>
+                    <li><a href="#author" data-icon="info" data-transition="slideup">關於</a></li>
+                    <li><a href="#outside" data-icon="action" data-transition="slideup">其他資源</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 查詢 -->
+    <div data-role="page" id="search">
+        <div data-role="header">
+            <h1>薪資查詢</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <label>職業選擇</label>
+            <select id="select_career" class="form-control">
+                <option value="-1">請選擇</option>
+            </select>
+            <label>學歷選擇</label>
+            <select id="select_education" class="form-control">
+                <option value="-1">請選擇</option>
+                <option value="國中及以下-薪資">國中及以下</option>
+                <option value="高中或高職-薪資">高中或高職</option>
+                <option value="專科-薪資">專科</option>
+                <option value="大學-薪資">大學</option>
+                <option value="研究所及以上-薪資">研究所以上</option>
+            </select>
+            <button id="searchButton">查詢</button>
+            <p id="seeData"></p>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-transition="slideup">首頁</a></li>
+                    <li><a href="#search" data-icon="search" class="ui-btn-active ui-state-persist">薪資查詢</a></li>
+                    <li><a href="#sort" data-icon="arrow-u" data-transition="slideup">排行榜</a></li>
+                    <li><a href="#author" data-icon="info" data-transition="slideup">關於</a></li>
+                    <li><a href="#outside" data-icon="action" data-transition="slideup">其他資源</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 排行榜 -->
+    <div data-role="page" id="sort">
+        <div data-role="header">
+            <h1>薪資排行榜</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <thead id="headings">
+                    <tr>
+                        <th>排名</th>
+                        <th>大職業別</th>
+                        <th>經常性薪資</th>
+                    </tr>
+                </thead>
+                <tbody id="results">
+                    <!-- ajax填充 -->
+                </tbody>
+            </table>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-transition="slideup">首頁</a></li>
+                    <li><a href="#search" data-icon="search" data-transition="slideup">薪資查詢</a></li>
+                    <li><a href="#sort" data-icon="arrow-u" class="ui-btn-active ui-state-persist">排行榜</a></li>
+                    <li><a href="#author" data-icon="info" data-transition="slideup">關於</a></li>
+                    <li><a href="#outside" data-icon="action" data-transition="slideup">其他資源</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 關於 -->
+    <div data-role="page" id="author">
+        <div data-role="header">
+            <h1>關於</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <ul>
+                <li>APP名稱：初任薪資查詢APP</li>
+                <li>APP作用：查詢各行各業各個學歷的初任薪資，或觀看初任薪資排行榜。</li>
+                <li>資料來源：政府資料開放平臺-初任人員平均經常性薪資-104年各教育程度別初任人員經常性薪資─按大職類分</li>
+                <li>作者：A4213001郭先旻</li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-transition="slideup">首頁</a></li>
+                    <li><a href="#search" data-icon="search" data-transition="slideup">薪資查詢</a></li>
+                    <li><a href="#sort" data-icon="arrow-u" data-transition="slideup">排行榜</a></li>
+                    <li><a href="#author" data-icon="info" class="ui-btn-active ui-state-persist">關於</a></li>
+                    <li><a href="#outside" data-icon="action" data-transition="slideup">其他資源</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="outside">
+        <div data-role="header">
+            <h1>外部薪資查詢網站</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <a href="#exit"><input type="button" id="outButton_1" value="台灣薪資地圖"></a>
+            <br>
+            <a href="#exit"><input type="button" id="outButton_2" value="各行各業薪資查詢網"></a>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-icon="home" data-transition="slideup">首頁</a></li>
+                    <li><a href="#search" data-icon="search" data-transition="slideup">薪資查詢</a></li>
+                    <li><a href="#sort" data-icon="arrow-u" data-transition="slideup">排行榜</a></li>
+                    <li><a href="#author" data-icon="info" data-transition="slideup">關於</a></li>
+                    <li><a href="#outside" data-icon="action" class="ui-btn-active ui-state-persist">其他資源</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="exit" data-dialog="true">
+        <div data-role="header">
+            <h1>前往外部連結</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div id="outDiv">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>
